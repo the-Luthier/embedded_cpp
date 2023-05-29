@@ -108,7 +108,7 @@ void setMotorDirection(bool forward) {
   //          digitalWrite(motorPin2, forward ? LOW : HIGH);
   
   // Set the motor speed and direction using the Dynamixel Shield
-  int direction = forward ? DXL_CW : DXL_CCW;
+  int direction = forward ? DXL_CCW : DXL_CW;
   dxlShield.setDirection(servoID, direction);
   dxlShield.setSpeed(servoID, motorSpeed);
 }
