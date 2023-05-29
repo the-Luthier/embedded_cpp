@@ -12,4 +12,4 @@ This software is desined for the systems that have following hardware;
 7 - SparkFun Redbot Motor Controller for motor controller
 
 
-Remind that you have to setup Arduino IDE in your project but in this repository the folder that contains the Arduino IDE will be ignored
+
