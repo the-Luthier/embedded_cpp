@@ -67,7 +67,7 @@ void loop() {
   
   // Perform processing and decision-making based on the sensor data
   // Example: Adjust motor speed and direction based on the Lidar distance, IMU data, or camera data
-  
+
   // Get the GPRS data
   float latitude = getGPRSLatitude();
   float longitude = getGPRSLongitude();
@@ -121,3 +121,5 @@ void controlMotor() {
 
   // Calculate the direction to the destination
   float directionToDestination = atan2(longitude - latitude, latitude + longitude);
+}
+
