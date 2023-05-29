@@ -52,7 +52,7 @@ void setup() {
 
 void loop() {
   // Read Lidar distance
-  int distance = lidar.distance();
+  int distance = lidar.read();
   
   // Read IMU data
   int16_t accelerometerX, accelerometerY, accelerometerZ;
