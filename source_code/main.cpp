@@ -3,7 +3,7 @@
 #include "../libs/LIDARLite_v4LED.h"
 #include "../libs/MPU6050.h"
 #include "../libs/Adafruit_AMG88xx.h"
-#include <Adafruit_VC0706.h>
+#include "../libs/Arduino_OV767X.h"
 #include "../libs/DynamixelShield.h"
 
 // Define Lidar object
@@ -14,7 +14,7 @@ MPU6050 imu;
 
 // Define Cameras
 Adafruit_AMG88xx cameraHeatVision;
-Adafruit_VC0706 cameraOV7670;
+Arduino_OV767X cameraOV7670;
 
 // Define Dynamixel object
 DynamixelShield dxlShield;
