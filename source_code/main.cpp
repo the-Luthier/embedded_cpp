@@ -66,7 +66,7 @@ void loop() {
   cameraOV7670.takePicture();
   
   // Perform processing and decision-making based on the sensor data
-  // Example: Adjust motor speed and direction based on the Lidar distance, IMU data, or camera data
+  processSensorData(distance, accelerometerX, accelerometerY, accelerometerZ, pixels);
   
   // Control the motor based on the processed data
   controlMotor();
@@ -92,6 +92,12 @@ void setMotorDirection(bool forward) {
   int direction = forward ? DXL_CW : DXL_CCW;
   dxlShield.setDirection(servoID, direction);
   dxlShield.setSpeed(servoID, motorSpeed);
+}
+
+void processSensorData(int distance, int16_t accX, int16_t accY, int16_t accZ, float* pixels) {
+  // Perform processing and decision-making based on the sensor data
+  // Adjust motor speed and direction based on the Lidar distance, IMU data, or camera data
+  // Add your custom logic here
 }
 
 void controlMotor() {
