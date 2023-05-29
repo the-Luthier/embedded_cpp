@@ -66,11 +66,30 @@ void loop() {
   cameraOV7670.takePicture();
   
   // Perform processing and decision-making based on the sensor data
-  processSensorData(distance, accelerometerX, accelerometerY, accelerometerZ, pixels);
+  // Example: Adjust motor speed and direction based on the Lidar distance, IMU data, or camera data
   
-  // Control the motor based on the processed data
-  controlMotor();
-  
+  // Get the GPRS data
+  float latitude = getGPRSLatitude();
+  float longitude = getGPRSLongitude();
+
+  // Get the IMU data
+  float heading = getIMUHeading();
+
+  // Calculate the direction to the destination
+  float directionToDestination = atan2(longitude - latitude, latitude + longitude);
+
+  // Check if the robot is facing the correct direction
+  if (directionToDestination > heading) {
+    // Turn left
+    dxlShield.setSpeed(servoID, -100);
+  } else if (directionToDestination < heading) {
+    // Turn right
+    dxlShield.setSpeed(servoID, 100);
+  } else {
+    // Move forward
+    dxlShield.setSpeed(servoID, 100);
+  }
+
   // Perform any additional tasks or operations as required
   
   // Delay or add appropriate timing control between iterations
@@ -94,17 +113,13 @@ void setMotorDirection(bool forward) {
   dxlShield.setSpeed(servoID, motorSpeed);
 }
 
-void processSensorData(int distance, int16_t accX, int16_t accY, int16_t accZ, float* pixels) {
-  // Perform processing and decision-making based on the sensor data
-  // Adjust motor speed and direction based on the Lidar distance, IMU data, or camera data
-  // Add your custom logic here
-}
-
 void controlMotor() {
-  // Code to control the motor based on the desired speed and direction
-  // Example: setMotorSpeed(motorSpeed); and setMotorDirection(motorDirection);
-  
-  // Example: Send motor control commands to the Dynamixel servo using the Dynamixel Shield
-  dxlShield.setSpeed(servoID, motorSpeed);  // Set servo speed
-  dxlShield.setDirection(servoID, motorDirection ? DXL_CW : DXL_CCW);  // Set servo direction
-}
+  // Get the GPRS data
+  float latitude = getGPRSLatitude();
+  float longitude = getGPRSLongitude();
+
+  // Get the IMU data
+  float heading = getIMUHeading();
+
+  // Calculate the direction to the destination
+  float directionToDestination = atan2(longitude - latitude, latitude + longitude);
