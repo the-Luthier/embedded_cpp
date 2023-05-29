@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <SparkFunLIDARLitev4.h>
+#include "../libs/LIDARLite_v4LED.h"
 #include <MPU6050.h>
 #include <Adafruit_AMG88xx.h>
 #include <Adafruit_VC0706.h>
