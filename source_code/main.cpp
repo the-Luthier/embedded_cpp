@@ -1,13 +1,13 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "../libs/LIDARLite_v4LED.h"
-#include <MPU6050.h>
-#include <Adafruit_AMG88xx.h>
+#include "../libs/MPU6050.h"
+#include "../libs/Adafruit_AMG88xx.h"
 #include <Adafruit_VC0706.h>
-#include <DynamixelShield.h>
+#include "../libs/DynamixelShield.h"
 
 // Define Lidar object
-LIDARLite_v4 lidar;
+LIDARLite_v4LED lidar;
 
 // Define IMU object
 MPU6050 imu;
