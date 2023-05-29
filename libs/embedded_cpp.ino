@@ -1,4 +1,4 @@
-#include <LidarLite_v4.h>
+#include <LIDARLite_v4LED.h>
 
 void setup() {
   // Initialize the serial port.
