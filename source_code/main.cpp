@@ -102,12 +102,10 @@ void setMotorSpeed(int speed) {
 }
 
 void setMotorDirection(bool forward) {
-  // Set the motor direction by controlling the motor pins
-  // Implementation specific to your motor controller
-  // Example: digitalWrite(motorPin1, forward ? HIGH : LOW);
-  //          digitalWrite(motorPin2, forward ? LOW : HIGH);
-  
-  // Set the motor speed and direction using the Dynamixel Shield
+  // The forward parameter indicates the direction that the motor should turn
+  // The DXL_CCW constant represents the direction that the motor will turn when the forward parameter is true
+  // The DXL_CW constant represents the direction that the motor will turn when the forward parameter is false
+
   int direction = forward ? DXL_CCW : DXL_CW;
   dxlShield.setDirection(servoID, direction);
   dxlShield.setSpeed(servoID, motorSpeed);
